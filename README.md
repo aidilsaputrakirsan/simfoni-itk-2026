@@ -1,6 +1,6 @@
 # SIMFONI ITK 2026 — Slide Workshop
 
-Live: https://aidilsaputrakirsan.github.io/simfoni-itk-2026/
+Live: https://myst-tech.com/simfoni-itk-2026/
 
 Presentasi "Integrasi AI untuk Kebijakan dan Keputusan Strategis yang Berdampak" (Slidev).
 

@@ -9,7 +9,7 @@ Jawab dalam Bahasa Indonesia, santai tapi jelas.
 - **Peserta:** ±70 offline + 80 online — mitra pemerintah & industri, pimpinan unit, dosen/peneliti ITK.
 - **Kerangka wajib KAK:** data, model, tata kelola, etika, pengukuran dampak.
 - **Luaran wajib KAK:** peta tantangan & peluang AI, rangkuman diskusi + rekomendasi awal, daftar minat kolaborasi (riset/pelatihan/pilot).
-- Publik di GitHub Pages: https://aidilsaputrakirsan.github.io/simfoni-itk-2026/ (repo PUBLIK — lihat "Privasi").
+- Publik di GitHub Pages: https://myst-tech.com/simfoni-itk-2026/ (repo PUBLIK — lihat "Privasi").
 
 ## Benang merah
 > AI sudah murah dan mudah diakses. Yang menentukan dampaknya adalah data yang rapi dan aturan
