@@ -1,0 +1,102 @@
+/*
+ * Arah desain: laporan kebijakan editorial.
+ * Kertas + tinta + satu warna aksen (merah bata), garis tipis, tanpa kartu/bayangan.
+ */
+:root {
+  --kertas: #f4f1ea;
+  --kertas-gelap: #ebe6da;
+  --tinta: #1c1b19;
+  --redup: #6b665c;
+  --garis: #cfc8b8;
+  --aksen: #a8361b;
+  --malam: #1d2230;
+}
+
+.slidev-layout {
+  background: var(--kertas);
+  color: var(--tinta);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 56px 80px 72px;
+}
+
+.slidev-layout h1 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 46px;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: var(--tinta);
+  max-width: 1100px;
+  margin-bottom: 0;
+}
+.slidev-layout h1 + p { opacity: 1; }
+
+.slidev-layout h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.slidev-layout p, .slidev-layout li { color: var(--tinta); }
+.slidev-layout ul { list-style: none; padding-left: 0; }
+.slidev-layout ul li { line-height: 1.4; padding-left: 1.1em; position: relative; margin: 0.35em 0; }
+.slidev-layout ul li::before { content: '—'; position: absolute; left: 0; color: var(--redup); }
+
+.redup { color: var(--redup) !important; }
+.aksen { color: var(--aksen); }
+.mono { font-family: 'IBM Plex Mono', monospace; font-feature-settings: 'tnum'; }
+.serif { font-family: 'Newsreader', serif; }
+
+/* garis pemisah tipis di bawah judul */
+.judul-garis { border-bottom: 1px solid var(--garis); padding-bottom: 20px; margin-bottom: 28px; }
+
+/* Baris berpenomor ala daftar laporan */
+.baris { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--garis); align-items: baseline; }
+.baris:last-child { border-bottom: 1px solid var(--garis); }
+.baris .no { font-family: 'IBM Plex Mono', monospace; color: var(--redup); font-size: 18px; }
+.baris .nama { font-family: 'Newsreader', serif; font-size: 28px; line-height: 1.2; }
+.baris .ket { color: var(--redup); font-size: 20px; }
+
+/* Tabel */
+.slidev-layout table { width: 100%; border-collapse: collapse; font-size: 20px; }
+.slidev-layout th { text-align: left; font-weight: 500; color: var(--redup); font-size: 16px; text-transform: none; border-bottom: 1px solid var(--tinta); padding: 8px 12px 8px 0; }
+.slidev-layout td { border-bottom: 1px solid var(--garis); padding: 12px 12px 12px 0; vertical-align: top; }
+.slidev-layout tr:hover td { background: transparent; }
+td.angka, th.angka { text-align: right; font-family: 'IBM Plex Mono', monospace; font-feature-settings: 'tnum'; white-space: nowrap; }
+
+/* Catatan sumber di dasar slide (di atas footer) */
+.slidev-layout .sumber { position: absolute; left: 80px; right: 80px; bottom: 44px; font-size: 14px; color: var(--redup); line-height: 1.4; }
+
+/* Angka sorotan tanpa kotak */
+.sorot { font-family: 'Newsreader', serif; font-size: 96px; line-height: 1.1; margin-top: 12px; letter-spacing: -0.02em; }
+.sorot-kecil { font-family: 'Newsreader', serif; font-size: 56px; line-height: 1.05; }
+
+/* Sampul */
+.sampul.slidev-layout { padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between; }
+.sampul h1 { font-size: 64px; max-width: 1000px; }
+.sampul .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; border-top: 1px solid var(--tinta); padding-top: 18px; font-size: 18px; }
+.sampul .meta p { margin: 0; }
+
+/* Slide gelap (pernyataan) */
+.malam.slidev-layout { background: var(--malam); color: var(--kertas); }
+.malam h1, .malam p { color: var(--kertas) !important; }
+.malam .redup { color: #a9acb6 !important; }
+
+/* Kolom bergaris atas (pengganti kartu) */
+.kolom { border-top: 2px solid var(--tinta); padding-top: 14px; }
+.kolom .no { font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: var(--aksen); }
+.kolom h2 { margin: 6px 0 10px; }
+
+/* Alur langkah horizontal */
+.alur { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--tinta); }
+.alur > div { padding: 16px 20px 0 0; position: relative; }
+.alur > div + div { padding-left: 20px; border-left: 1px solid var(--garis); }
+.alur .tahap { font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: var(--aksen); }
+.alur .judul { font-family: 'Newsreader', serif; font-size: 25px; line-height: 1.2; margin: 6px 0; }
+.alur .ket { font-size: 17px; color: var(--redup); line-height: 1.4; }
+
+/* Kutipan pertanyaan */
+.tanya { font-family: 'Newsreader', serif; font-style: italic; font-size: 30px; line-height: 1.3; border-left: 2px solid var(--aksen); padding-left: 20px; margin: 18px 0; }
