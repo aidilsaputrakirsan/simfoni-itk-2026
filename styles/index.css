@@ -1,102 +1,147 @@
 /*
- * Arah desain: laporan kebijakan editorial.
- * Kertas + tinta + satu warna aksen (merah bata), garis tipis, tanpa kartu/bayangan.
+ * Arah desain: gelap elegan (hitam pekat), judul sans tebal dua warna (putih + biru),
+ * aksen mint, garis tipis, kotak berbingkai tipis bersudut bulat, ilustrasi line-art.
+ * Latar + jaringan titik dilukis oleh global-bottom.vue (.slidev-layout transparan).
  */
 :root {
-  --kertas: #f4f1ea;
-  --kertas-gelap: #ebe6da;
-  --tinta: #1c1b19;
-  --redup: #6b665c;
-  --garis: #cfc8b8;
-  --aksen: #a8361b;
-  --malam: #1d2230;
+  --latar: #0b0c0f;
+  --permukaan: #121419;
+  --teks: #f4f5f7;
+  --redup: #a0a6b1;
+  --samar: #6b7280;
+  --garis: #24272e;
+  --garis-kuat: #343842;
+  --biru: #4ea1f3;
+  --mint: #5eead4;
+  --mint-gelap: #0f2a27;
+  --sudut: 16px;
 }
 
 .slidev-layout {
-  background: var(--kertas);
-  color: var(--tinta);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 22px;
+  background: transparent;
+  color: var(--teks);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px;
   line-height: 1.5;
-  padding: 56px 80px 72px;
+  padding: 92px 80px 72px;
 }
 
 .slidev-layout h1 {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: 46px;
-  line-height: 1.12;
-  letter-spacing: -0.01em;
-  color: var(--tinta);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--teks);
   max-width: 1100px;
   margin-bottom: 0;
 }
 .slidev-layout h1 + p { opacity: 1; }
-
 .slidev-layout h2 {
-  font-family: 'Newsreader', serif;
-  font-weight: 500;
-  font-size: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
   line-height: 1.2;
+  letter-spacing: -0.015em;
 }
+.slidev-layout b, .slidev-layout strong { color: #fff; font-weight: 700; }
 
-.slidev-layout p, .slidev-layout li { color: var(--tinta); }
+.slidev-layout p, .slidev-layout li { color: var(--teks); }
 .slidev-layout ul { list-style: none; padding-left: 0; }
-.slidev-layout ul li { line-height: 1.4; padding-left: 1.1em; position: relative; margin: 0.35em 0; }
-.slidev-layout ul li::before { content: '—'; position: absolute; left: 0; color: var(--redup); }
+.slidev-layout ul li { line-height: 1.4; padding-left: 1.2em; position: relative; margin: 0.4em 0; }
+.slidev-layout ul li::before { content: ''; position: absolute; left: 0; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--mint); }
 
+.biru { color: var(--biru) !important; }
+.mint, .aksen { color: var(--mint) !important; }
 .redup { color: var(--redup) !important; }
-.aksen { color: var(--aksen); }
-.mono { font-family: 'IBM Plex Mono', monospace; font-feature-settings: 'tnum'; }
-.serif { font-family: 'Newsreader', serif; }
+.mono { font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum'; }
+.serif { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; }
 
 /* garis pemisah tipis di bawah judul */
-.judul-garis { border-bottom: 1px solid var(--garis); padding-bottom: 20px; margin-bottom: 28px; }
+.judul-garis { border-bottom: 1px solid var(--garis); padding-bottom: 22px; margin-bottom: 8px; }
 
-/* Baris berpenomor ala daftar laporan */
-.baris { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--garis); align-items: baseline; }
+/* Baris bernomor (01, 02, 03) */
+.baris { display: grid; grid-template-columns: 64px 1fr 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--garis); align-items: center; }
 .baris:last-child { border-bottom: 1px solid var(--garis); }
-.baris .no { font-family: 'IBM Plex Mono', monospace; color: var(--redup); font-size: 18px; }
-.baris .nama { font-family: 'Newsreader', serif; font-size: 28px; line-height: 1.2; }
-.baris .ket { color: var(--redup); font-size: 20px; }
+.baris .no { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; color: var(--mint); font-size: 22px; }
+.baris .nama { font-weight: 700; font-size: 25px; line-height: 1.2; letter-spacing: -0.015em; }
+.baris .ket { color: var(--redup); font-size: 19px; line-height: 1.4; }
+.baris.ilus { grid-template-columns: 56px 1.15fr 1fr 150px; }
+.label-kolom { font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.06em; color: var(--samar) !important; }
 
 /* Tabel */
-.slidev-layout table { width: 100%; border-collapse: collapse; font-size: 20px; }
-.slidev-layout th { text-align: left; font-weight: 500; color: var(--redup); font-size: 16px; text-transform: none; border-bottom: 1px solid var(--tinta); padding: 8px 12px 8px 0; }
-.slidev-layout td { border-bottom: 1px solid var(--garis); padding: 12px 12px 12px 0; vertical-align: top; }
+.slidev-layout table { width: 100%; border-collapse: collapse; font-size: 19px; }
+.slidev-layout th { text-align: left; font-weight: 500; color: var(--samar); font-size: 14px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; border-bottom: 1px solid var(--garis-kuat); padding: 8px 12px 10px 0; }
+.slidev-layout td { border-bottom: 1px solid var(--garis); padding: 13px 12px 13px 0; vertical-align: top; color: var(--teks); }
 .slidev-layout tr:hover td { background: transparent; }
-td.angka, th.angka { text-align: right; font-family: 'IBM Plex Mono', monospace; font-feature-settings: 'tnum'; white-space: nowrap; }
+.slidev-layout td .mono { color: var(--mint); }
+td.angka, th.angka { text-align: right; font-family: 'JetBrains Mono', monospace; font-feature-settings: 'tnum'; white-space: nowrap; }
 
-/* Catatan sumber di dasar slide (di atas footer) */
-.slidev-layout .sumber { position: absolute; left: 80px; right: 80px; bottom: 44px; font-size: 14px; color: var(--redup); line-height: 1.4; }
+/* Catatan sumber di dasar slide (di atas nomor halaman) */
+.slidev-layout .sumber { position: absolute; left: 80px; right: 180px; bottom: 26px; font-size: 13px; color: var(--samar); line-height: 1.4; }
 
-/* Angka sorotan tanpa kotak */
-.sorot { font-family: 'Newsreader', serif; font-size: 96px; line-height: 1.1; margin-top: 12px; letter-spacing: -0.02em; }
-.sorot-kecil { font-family: 'Newsreader', serif; font-size: 56px; line-height: 1.05; }
+/* Angka sorotan */
+/* .slidev-layout p.* supaya mengalahkan line-height bawaan tema untuk <p> */
+.slidev-layout p.sorot, .slidev-layout .sorot { font-weight: 800; font-size: 112px; line-height: 1.02; margin: 12px 0 18px; letter-spacing: -0.04em; }
+.slidev-layout p.sorot-kecil, .slidev-layout .sorot-kecil { font-weight: 800; font-size: 50px; line-height: 1.1; margin: 0 0 6px; letter-spacing: -0.03em; }
 
 /* Sampul */
-.sampul.slidev-layout { padding: 72px 80px; display: flex; flex-direction: column; justify-content: space-between; }
-.sampul h1 { font-size: 64px; max-width: 1000px; }
-.sampul .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; border-top: 1px solid var(--tinta); padding-top: 18px; font-size: 18px; }
+.sampul.slidev-layout { padding: 64px 80px 56px; display: flex; flex-direction: column; justify-content: space-between; }
+.sampul h1 { font-size: 64px; max-width: 1060px; }
+.sampul .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; border-top: 1px solid var(--garis); padding-top: 16px; font-size: 17px; }
 .sampul .meta p { margin: 0; }
 
-/* Slide gelap (pernyataan) */
-.malam.slidev-layout { background: var(--malam); color: var(--kertas); }
-.malam h1, .malam p { color: var(--kertas) !important; }
-.malam .redup { color: #a9acb6 !important; }
+/* Slide pernyataan */
+.malam.slidev-layout { background: transparent; color: var(--teks); }
+.malam h1 { color: var(--teks); }
 
-/* Kolom bergaris atas (pengganti kartu) */
-.kolom { border-top: 2px solid var(--tinta); padding-top: 14px; }
-.kolom .no { font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: var(--aksen); }
-.kolom h2 { margin: 6px 0 10px; }
+/* Kolom bergaris atas */
+.kolom { border-top: 1px solid var(--garis-kuat); padding-top: 16px; }
+.kolom .no { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 15px; letter-spacing: 0.02em; color: var(--mint); }
+.kolom h2 { margin: 8px 0 10px; }
 
-/* Alur langkah horizontal */
-.alur { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--tinta); }
-.alur > div { padding: 16px 20px 0 0; position: relative; }
-.alur > div + div { padding-left: 20px; border-left: 1px solid var(--garis); }
-.alur .tahap { font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: var(--aksen); }
-.alur .judul { font-family: 'Newsreader', serif; font-size: 25px; line-height: 1.2; margin: 6px 0; }
-.alur .ket { font-size: 17px; color: var(--redup); line-height: 1.4; }
+/* Alur langkah: kotak bersudut bulat, disambung konektor mint */
+.alur { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.alur > div { padding: 18px 20px; position: relative; border: 1px solid var(--garis-kuat); border-radius: var(--sudut); background: rgba(18, 20, 25, 0.7); }
+.alur > div + div::before { content: ''; position: absolute; left: -29px; top: 50%; width: 28px; height: 2px; background: var(--mint); }
+.alur > div + div::after { content: ''; position: absolute; left: -33px; top: calc(50% - 3px); width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+.alur .tahap { font-weight: 800; font-size: 15px; color: var(--mint); }
+.alur .judul { font-weight: 700; font-size: 22px; line-height: 1.2; margin: 6px 0; letter-spacing: -0.01em; }
+.alur .ket { font-size: 15px; color: var(--redup); line-height: 1.4; }
 
-/* Kutipan pertanyaan */
-.tanya { font-family: 'Newsreader', serif; font-style: italic; font-size: 30px; line-height: 1.3; border-left: 2px solid var(--aksen); padding-left: 20px; margin: 18px 0; }
+/* Kutipan pertanyaan: gelembung obrolan */
+.tanya { font-weight: 600; font-size: 25px; line-height: 1.3; border: 1px solid var(--garis-kuat); border-radius: 20px 20px 20px 4px; padding: 16px 22px; margin: 14px 0 18px; background: var(--permukaan); }
+
+/* Pengungkapan bertahap: muncul sambil naik sedikit */
+.slidev-vclick-target { transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+.slidev-vclick-hidden { transform: translateY(10px); }
+
+/* Judul masuk pelan saat slide dibuka */
+.slidev-layout h1 { animation: judul-masuk .7s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes judul-masuk { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .slidev-layout h1 { animation: none; }
+  .slidev-vclick-hidden { transform: none; }
+}
+
+/* Baris produk dengan cuplikan layar kecil (slide penutup) */
+.produk { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; padding: 8px 0; border-top: 1px solid var(--garis); }
+.produk:last-child { border-bottom: 1px solid var(--garis); }
+.produk img { width: 96px; height: 60px; object-fit: cover; object-position: top; border: 1px solid var(--garis-kuat); border-radius: 8px; display: block; }
+.produk p { margin: 0; }
+.produk .nama { font-weight: 700; font-size: 20px; line-height: 1.15; }
+.produk .ket { font-size: 15px; color: var(--redup); }
+
+/* Angka statistik bawah (slide Satu Etam) */
+.statistik { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; border-top: 1px solid var(--garis); padding-top: 18px; }
+.statistik .sorot-kecil { color: var(--mint); }
+
+/* Kotak berbingkai tipis bersudut bulat (mis. slide "Tiga hal") */
+.kotak { border: 1px solid var(--garis-kuat); border-radius: var(--sudut); padding: 26px 26px 28px; background: rgba(18, 20, 25, 0.75); }
+.slidev-layout .kotak .no { font-weight: 800; font-size: 40px; line-height: 1; color: var(--mint); margin: 0 0 18px; letter-spacing: -0.03em; }
+.kotak h2 { margin: 0 0 10px; }
+.kotak p { font-size: 18px; }
+
+/* hindari garis ganda: judul bergaris langsung diikuti baris bernomor */
+.judul-garis + .baris { border-top: none; }
+.judul-garis ~ .baris { padding: 14px 0; }

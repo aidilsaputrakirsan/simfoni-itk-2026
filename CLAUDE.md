@@ -37,21 +37,32 @@ Commit atas nama user, TANPA `Co-Authored-By: Claude` / atribusi Claude.
 |---|---|
 | `slides.md` | 18 slide; frontmatter `bagian:` per slide = teks footer; catatan pembicara di `<!-- -->` |
 | `styles/index.css` | seluruh tampilan (token warna di `:root`, kelas `.baris`, `.kolom`, `.alur`, `.sorot`, `.sumber`, `.malam`, `.sampul`) |
-| `global-top.vue` | footer berjalan (bagian + nomor halaman). HARUS `global-top`: `global-bottom` tertutup latar slide yang opak |
+| `global-top.vue` | header berjalan (SIMFONI ITK 2026 + bagian, garis tipis) + nomor halaman kanan bawah. HARUS `global-top` |
 | `components/HargaTurun.vue` | grafik lereng US$20 → US$0,07 (sumbu log) |
 | `components/BiayaLog.vue` | batang log: Rp1,3 T vs Rp190–280 jt/bln vs < Rp150 (muncul per klik) |
-| `components/Tangkapan.vue` | bingkai tangkapan layar; file belum ada → bingkai putus-putus berisi petunjuk |
+| `components/Tangkapan.vue` | rekaman/tangkapan layar: prop `video` (mp4, muted+loop, jalan hanya saat slide aktif, reset saat pindah) → cadangan `src` (jpg = frame dari video; juga poster & tampilan ekspor) → bingkai putus-putus |
+| `components/Ilustrasi.vue` | ilustrasi line-art: `latih` (chip GPU), `server` (rak + unduh), `api` (aplikasi ⇄ cloud) |
+| `global-bottom.vue` | latar hidup: kanvas jaringan titik samar (sebagian mint) + warna latar gelap (karena `.slidev-layout` transparan). Diam di ekspor & reduced-motion |
+| `components/Foto.vue` | foto dokumenter berwarna (sedikit diredupkan) + kredit lisensi; zoom pelan saat slide aktif |
+| `components/AngkaNaik.vue` | angka menghitung naik saat slide dibuka (280×) |
+| `public/foto/` | foto bebas lisensi (Wikimedia/Flickr via Openverse). CC BY/BY-SA WAJIB ada kredit `kredit="Pembuat, Lisensi"` di slide |
+| `public/produk/` | cuplikan landing page produk Myst Tech (dari repo aidilsaputrakirsan.github.io) |
 
-## Arah desain (penting — user menolak tampilan "AI slop")
-Gaya **laporan kebijakan editorial**: kertas `#f4f1ea`, tinta `#1c1b19`, satu aksen merah bata `#a8361b`
-(hemat), slide gelap `#1d2230` hanya untuk pernyataan inti. Newsreader (judul, serif) + IBM Plex Sans (teks)
-+ IBM Plex Mono (angka, label kecil, footer).
-- Judul = **kalimat pernyataan** (assertion), bukan topik. Huruf kalimat biasa, bukan Title Case.
-- DILARANG: label kapital di atas setiap judul, kartu berbingkai/bayangan, nomor dalam kotak/lingkaran,
-  blok warna penuh, gradien, emoji, ikon dekoratif, grid 3 kartu seragam.
-- Pakai: garis tipis (hairline), baris ala tabel laporan, angka monospace rata kanan, banyak ruang kosong,
-  grafik sungguhan, tangkapan layar aplikasi asli.
-- Penekanan: `v-mark` (coretan tangan) maksimal 1 per slide; `v-click` untuk pengungkapan bertahap.
+Path gambar di prop komponen (`src="/foto/x.jpg"`) diberi `import.meta.env.BASE_URL` di dalam komponen;
+`<img>` biasa di slides.md otomatis ikut base. Animasi memakai `useIsSlideActive()` dan selalu tampil
+final bila `isPrintMode`.
+
+## Arah desain (penting — user menolak tampilan "AI slop" DAN tampilan kaku/jadul)
+Sejak 10 Nov 2026: **gelap elegan** (referensi user: infografis Dicoding — gayanya saja, jangan tiru logo/aset).
+Latar hitam pekat `#0b0c0f` (dilukis `global-bottom.vue`), teks `#f4f5f7`, redup `#a0a6b1`, garis `#24272e`,
+biru `#4ea1f3` (bagian kunci judul), mint `#5eead4` (nomor 01/02, angka, highlight). Token di `:root` styles/index.css.
+Plus Jakarta Sans (judul 800 + teks) + JetBrains Mono (angka, label kecil). Gaya kertas/serif lama DIBUANG.
+- Judul = **kalimat pernyataan**, huruf kalimat biasa; bagian kuncinya `<span class="biru">…</span>` (dua warna).
+- Boleh: kotak berbingkai tipis bersudut bulat (`.kotak`, `.alur`), ilustrasi line-art (`Ilustrasi.vue`:
+  garis terang + isian mint), nomor mint tebal, foto berwarna asli (sedikit diredupkan) bersudut bulat.
+- DILARANG: emoji, gradien, bayangan tebal, blok warna penuh, label kapital di atas setiap judul, ikon tempelan
+  yang tidak menjelaskan isi.
+- Penekanan: `v-mark` (coretan tangan, warna mint: `v-mark="{ at: N, type: 'underline', color: '#5eead4' }"`) maksimal 1 per slide; `v-click` untuk pengungkapan bertahap.
 - Di SVG, ukuran huruf pakai `style="font-size:..px"` (atribut `font-size` tertimpa CSS).
 - `.sumber` = catatan sumber di dasar slide (di atas footer); setiap angka luar WAJIB bersumber.
 - Cek visual: `npx slidev export --format png --output <folder>` lalu lihat gambarnya; atau Playwright ke dev server.
@@ -61,6 +72,8 @@ Gaya **laporan kebijakan editorial**: kertas `#f4f1ea`, tinta `#1c1b19`, satu ak
 |---|---|---|
 | GPT-4 ±US$78 jt, Llama 3.1 405B ±US$170 jt, Gemini 1.0 Ultra ±US$191 jt (biaya komputasi latih) | Stanford AI Index 2025 (estimasi bersama Epoch AI), via liputan sekunder | Belum dicek langsung di tabel PDF — user diminta verifikasi |
 | Harga setara GPT-3.5: US$20 → US$0,07 per 1 jt token (Nov 2022 → Okt 2024), 280× | Stanford AI Index 2025 | Harga untuk kemampuan setara, bukan satu produk |
+| Harga setara GPT-4 (MMLU ≥ 86): GPT-4 US$37,50 (Mar 2023) → GPT-4 Turbo US$15 (Nov 2023) → Gemini 1.5 Pro US$2,19 (Mei 2024) → Gemini 2.0 Flash US$0,18 (Feb 2025), ±208× | Epoch AI, “LLM inference prices have fallen rapidly but unequally across tasks” (12 Mar 2025) | Data Epoch berhenti Feb 2025; tidak ada AI Index 2026 yang terverifikasi |
+| Model Satu Etam Nov 2026: DeepSeek V4 Flash US$0,11, Qwen3.5-9B US$0,19, Qwen3-VL-30B US$0,26 per 1 jt token | API publik OpenRouter `/api/v1/models`, 10 Nov 2026 | Blended 3 input : 1 output (sama dgn AI Index/Epoch). Penanda terpisah, BUKAN lanjutan tren. Cek ulang sebelum acara |
 | Llama 3.1 405B ±810 GB memori GPU (FP16) → 8–16 GPU H100 | Next Platform (2024), RunPod | Sumber berbeda soal cukup 8 atau perlu 16 |
 | H100 US$25–40 rb/unit; sewa US$2–8/GPU/jam | GMI Cloud, Thunder Compute (2025) | Kisaran vendor |
 | Rp190–280 jt/bulan | hitungan sendiri: US$2–3 × 8 GPU × 720 jam × Rp16.500 | estimasi |
@@ -69,6 +82,8 @@ Gaya **laporan kebijakan editorial**: kertas `#f4f1ea`, tinta `#1c1b19`, satu ak
 | 2 RT aktif (RT 44 = 154 rumah, RT 56 = 261 rumah, Kel. Sepinggan Baru) ≈ 415 rumah; 91 indikator / 24 OPD | DB Satu Etam (agregat) | RT lain 0–40 rumah, diduga data uji — konfirmasi ke user |
 
 URL sumber:
+- https://epoch.ai/data-insights/llm-inference-price-trends
+- https://openrouter.ai/api/v1/models
 - https://hai-production.s3.amazonaws.com/files/hai_ai-index-report-2025_chapter1_final.pdf
 - https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-costs-drop-280-fold-but-harmful-incidents-rise-56-percent-in-last-year-stanford-2025-ai-report-highlights-china-us-competition
 - https://www.nextplatform.com/ai/2024/07/29/stacking-up-amd-versus-nvidia-for-llama-31-gpu-inference/1656756
@@ -86,7 +101,9 @@ URL sumber:
 - Ruang Dinas: 24 OPD, 91 indikator Portal Satu Data; data > 2 tahun ditandai "data lama".
 
 ## Belum selesai (TODO)
-- Tangkapan layar asli (MODE DEMO, bukan data warga): `public/baca-kk.png`, `public/tanya-data.png`.
+- Rekaman demo sudah ada: `public/baca-kk.mp4` (39 dtk), `public/tanya-data.mp4` (23 dtk), dikonversi dari .mov dengan
+  `avconvert --preset Preset1280x720` (bawaan macOS; tidak ada ffmpeg). Uji putar pakai Playwright `channel: 'chrome'`
+  (Chromium bawaan Playwright tidak bisa H.264).
 - Kontak di slide penutup masih `[email] · [WhatsApp] · [QR]`.
 - Verifikasi angka biaya training di PDF AI Index; konfirmasi jumlah RT/rumah aktif.
 - Lembar kerja diskusi (5 pertanyaan + hambatan + minat kolaborasi) + versi Google Form untuk peserta online.

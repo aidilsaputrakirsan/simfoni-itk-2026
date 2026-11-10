@@ -1,23 +1,55 @@
 <script setup>
-// Bingkai tangkapan layar aplikasi. Taruh file di folder public/ (mis. public/tanya-data.png).
-// Selama file belum ada, tampil bingkai garis putus berisi keterangan apa yang perlu difoto.
-import { ref } from 'vue'
+// Bingkai rekaman/tangkapan layar aplikasi (taruh file di public/).
+// Urutan: video (bila ada) → gambar → bingkai putus-putus berisi petunjuk.
+// Video: tanpa suara, berulang, otomatis jalan selama slide ini tampil; berhenti & kembali ke awal
+// saat pindah slide. Mode ekspor/PDF: yang tampil gambar (src), bukan video.
+import { computed, ref, watch } from 'vue'
+import { useIsSlideActive, useNav } from '@slidev/client'
 
-defineProps({
-  src: String,
+const props = defineProps({
+  src: String,    // gambar, mis. "/baca-kk.png" — juga jadi poster & cadangan video
+  video: String,  // video, mis. "/baca-kk.mp4" (opsional)
   label: String,
   tinggi: { type: Number, default: 380 },
+  pas: { type: String, default: 'cover' }, // object-fit: cover | contain
 })
-const gagal = ref(false)
+// path "/x.png" → ikut base deploy (GitHub Pages: /simfoni-itk-2026/)
+const base = (p) => p?.startsWith('/') ? import.meta.env.BASE_URL + p.slice(1) : p
+const url = computed(() => base(props.src))
+const urlVideo = computed(() => base(props.video))
+
+const aktif = useIsSlideActive()
+const { isPrintMode } = useNav()
+const videoGagal = ref(false)
+const gambarGagal = ref(false)
+const vid = ref(null)
+const pakaiVideo = computed(() => props.video && !videoGagal.value && !isPrintMode.value)
+
+watch([aktif, vid], ([a, v]) => {
+  if (!v) return
+  if (a) {
+    v.currentTime = 0
+    v.play().catch(() => {}) // muted → autoplay diizinkan browser
+  } else {
+    v.pause()
+    v.currentTime = 0
+  }
+}, { immediate: true })
+
+const gaya = computed(() => ({
+  width: '100%', height: props.tinggi + 'px', objectFit: props.pas, objectPosition: 'top',
+  border: '1px solid #343842', borderRadius: '14px', background: '#121419', display: 'block',
+}))
 </script>
 
 <template>
   <figure style="margin: 0">
-    <img v-if="!gagal" :src="src" :alt="label" @error="gagal = true"
-         :style="{ width: '100%', height: tinggi + 'px', objectFit: 'cover', objectPosition: 'top', border: '1px solid #1c1b19' }">
+    <video v-if="pakaiVideo" ref="vid" :src="urlVideo" :poster="gambarGagal ? undefined : url"
+           muted loop playsinline preload="auto" :style="gaya" @error="videoGagal = true" />
+    <img v-else-if="!gambarGagal" :src="url" :alt="label" :style="gaya" @error="gambarGagal = true">
     <div v-else class="flex items-center justify-center text-center mono"
-         :style="{ height: tinggi + 'px', border: '1px dashed #6b665c', color: '#6b665c', fontSize: '15px', padding: '24px', background: '#ebe6da' }">
-      tangkapan layar belum ada<br>{{ label }}<br>→ simpan sebagai public{{ src }}
+         :style="{ height: tinggi + 'px', border: '1px dashed #343842', borderRadius: '14px', color: '#6b7280', fontSize: '15px', padding: '24px', background: '#121419' }">
+      rekaman belum ada<br>{{ label }}<br>→ simpan sebagai public{{ video || src }}
     </div>
     <figcaption class="redup" style="font-size: 14px; margin-top: 6px">{{ label }}</figcaption>
   </figure>

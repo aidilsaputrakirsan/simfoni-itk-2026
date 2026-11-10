@@ -2,14 +2,13 @@
 theme: default
 title: Integrasi AI untuk Kebijakan dan Keputusan Strategis
 info: SIMFONI ITK 2026 — Workshop, Aidil Saputra Kirsan
-colorSchema: light
+colorSchema: dark
 aspectRatio: 16/9
 canvasWidth: 1280
 fonts:
-  sans: IBM Plex Sans
-  serif: Newsreader
-  mono: IBM Plex Mono
-  weights: '400,500,600'
+  sans: Plus Jakarta Sans
+  mono: JetBrains Mono
+  weights: '400,500,600,700,800'
   italic: true
 transition: fade
 drawings:
@@ -21,10 +20,12 @@ class: sampul
 <div>
 <p class="mono redup" style="font-size:16px">SIMFONI ITK 2026 — Workshop</p>
 
-# Integrasi AI untuk kebijakan dan keputusan strategis yang berdampak
+# Integrasi AI untuk kebijakan dan <span class="biru">keputusan strategis yang berdampak</span>
 
 <p class="redup" style="font-size:24px;max-width:820px;margin-top:20px">Dari memakai AI, ke mengambil keputusan dengan bantuan AI — yang bisa dipertanggungjawabkan.</p>
 </div>
+
+<Foto src="/foto/balikpapan.jpg" :tinggi="150" posisi="center 60%" ket="Balikpapan, Desember 2018" kredit="consigliere ivan, CC0 (Wikimedia Commons)" />
 
 <div class="meta">
 <div>
@@ -50,11 +51,11 @@ bagian: Pembuka
 
 <v-click>
 
-<h1 class="redup" style="margin-top:8px">Sedikit yang memakainya untuk mengambil <span v-mark.underline.red="2">keputusan</span>.</h1>
+<h1 class="biru" style="margin-top:8px">Sedikit yang memakainya untuk mengambil <span v-mark="{ at: 2, type: 'underline', color: '#5eead4', strokeWidth: 4 }">keputusan</span>.</h1>
 
 </v-click>
 
-<div class="grid grid-cols-2 gap-16" style="margin-top:96px;max-width:980px">
+<div class="grid gap-12" style="margin-top:72px;grid-template-columns:1fr 1fr 280px;align-items:end">
 <div class="kolom">
 <p class="no">PERTANYAAN 1</p>
 <p>Siapa yang minggu ini memakai ChatGPT, Gemini, Claude, atau Copilot?</p>
@@ -63,6 +64,7 @@ bagian: Pembuka
 <p class="no">PERTANYAAN 2</p>
 <p>Adakah keputusan di kantor Anda yang diambil dengan bantuan AI — dan bisa dipertanggungjawabkan?</p>
 </div>
+<Foto src="/foto/angkat-tangan.jpg" :tinggi="210" posisi="center 30%" kredit="USDA, domain publik" />
 </div>
 
 <!--
@@ -77,27 +79,30 @@ bagian: Tiga cara memakai AI
 
 <div class="judul-garis">
 
-# Ada tiga cara sebuah institusi memakai AI
+# Ada tiga cara sebuah institusi <span class="biru">memakai AI</span>
 
 </div>
 
-<div class="baris" style="border-top:none">
-<span class="no"></span><span class="redup" style="font-size:16px">CARA</span><span class="redup" style="font-size:16px">YANG DIBUTUHKAN</span>
+<div class="baris ilus" style="border-top:none;padding:6px 0">
+<span class="no"></span><span class="label-kolom">CARA</span><span class="label-kolom">YANG DIBUTUHKAN</span><span></span>
 </div>
-<div class="baris" v-click>
+<div class="baris ilus" v-click>
 <span class="no">01</span>
-<span class="nama">Membuat model sendiri<br><span class="redup" style="font-size:18px;font-family:'IBM Plex Sans'">seperti ChatGPT, Gemini, Claude</span></span>
+<span class="nama">Membuat model sendiri<br><span class="redup" style="font-size:17px;font-weight:400;letter-spacing:0">seperti ChatGPT, Gemini, Claude</span></span>
 <span class="ket">Riset bertahun-tahun, ribuan GPU, ratusan juta dolar</span>
+<Ilustrasi jenis="latih" />
 </div>
-<div class="baris" v-click>
+<div class="baris ilus" v-click>
 <span class="no">02</span>
-<span class="nama">Memasang model open-source<br><span class="redup" style="font-size:18px;font-family:'IBM Plex Sans'">Llama, Qwen, DeepSeek di server sendiri</span></span>
+<span class="nama">Memasang model open-source<br><span class="redup" style="font-size:17px;font-weight:400;letter-spacing:0">Llama, Qwen, DeepSeek di server sendiri</span></span>
 <span class="ket">Server GPU besar dan tim yang merawatnya</span>
+<Ilustrasi jenis="server" />
 </div>
-<div class="baris" v-click>
-<span class="no aksen">03</span>
-<span class="nama"><span v-mark.circle.red="4">Memakai API</span>, bayar per pemakaian<br><span class="redup" style="font-size:18px;font-family:'IBM Plex Sans'">model di server penyedia, dihitung per token</span></span>
+<div class="baris ilus" v-click>
+<span class="no">03</span>
+<span class="nama"><span v-mark="{ at: 4, type: 'circle', color: '#5eead4', strokeWidth: 3 }">Memakai API</span>, bayar per pemakaian<br><span class="redup" style="font-size:17px;font-weight:400;letter-spacing:0">model di server penyedia, dihitung per token</span></span>
 <span class="ket">Koneksi internet dan aturan data yang ketat</span>
+<Ilustrasi jenis="api" />
 </div>
 
 <!--
@@ -111,7 +116,7 @@ Token = potongan kata untuk tagihan (±¾ kata Inggris). Harga ditulis per 1 jut
 bagian: Tiga cara memakai AI
 ---
 
-# Melatih satu model besar menelan biaya ratusan juta dolar
+# Melatih satu model besar menelan biaya <span class="biru">ratusan juta dolar</span>
 
 <div class="grid gap-16" style="grid-template-columns: 1.3fr 1fr; margin-top:48px">
 <div>
@@ -124,7 +129,8 @@ bagian: Tiga cara memakai AI
 
 </div>
 <div style="padding-top:8px">
-<p class="sorot-kecil">± Rp1,3 triliun</p>
+<Foto src="/foto/klaster-gpu.jpg" :tinggi="150" posisi="center 40%" ket="Klaster GPU untuk komputasi" kredit="ChrisDag, CC BY 2.0" />
+<p class="sorot-kecil" style="margin-top:30px">± Rp1,3 triliun</p>
 <p class="redup" style="margin-top:12px">untuk <i>sekali</i> melatih GPT-4 — belum termasuk gaji peneliti dan riset bertahun-tahun sebelumnya.</p>
 </div>
 </div>
@@ -140,7 +146,7 @@ Ini permainan segelintir perusahaan raksasa. Bagi kita: tidak perlu, dan tidak m
 bagian: Tiga cara memakai AI
 ---
 
-# Model open-source gratis diunduh. Servernya yang mahal.
+# Model open-source gratis diunduh. <span class="biru">Servernya yang mahal.</span>
 
 <div class="grid gap-16" style="grid-template-columns: 1.2fr 1fr; margin-top:48px">
 <div>
@@ -154,10 +160,11 @@ bagian: Tiga cara memakai AI
 
 </div>
 <div style="padding-top:8px">
-<p class="redup" style="font-size:18px">Menyewa 8 GPU nonstop</p>
+<Foto src="/foto/ruang-server.jpg" :tinggi="130" posisi="center 45%" kredit="motleypixel, CC BY 2.0" />
+<p class="redup" style="font-size:18px;margin-top:14px">Menyewa 8 GPU nonstop</p>
 <p class="sorot-kecil">Rp190–280 juta</p>
 <p class="redup">setiap bulan</p>
-<p style="margin-top:28px;font-size:19px">Kelebihannya: data tidak keluar dari server sendiri. Layak untuk data yang <b>sangat</b> sensitif.</p>
+<p style="margin-top:16px;font-size:19px">Kelebihannya: data tidak keluar dari server sendiri. Layak untuk data yang <b>sangat</b> sensitif.</p>
 </div>
 </div>
 
@@ -173,21 +180,28 @@ Sumber berbeda pendapat apakah 8 H100 cukup untuk versi penuh, makanya "8–16".
 bagian: Tiga cara memakai AI
 ---
 
-# Harga memakai AI turun 280 kali dalam dua tahun
+# Harga AI <span class="biru">turun ratusan kali</span> sejak 2022
 
-<div class="grid gap-12 items-center" style="grid-template-columns: 640px 1fr; margin-top:28px">
+<div class="grid gap-10 items-center" style="grid-template-columns: 700px 1fr; margin-top:18px">
 <HargaTurun />
 <div>
-<p class="redup" style="font-size:18px">Per 1 juta token, untuk kemampuan setara GPT-3.5</p>
-<p class="sorot aksen" style="margin-top:32px">280×</p>
-<p style="margin-top:20px">Inilah yang membuat pengembang kecil di Balikpapan bisa membangun produk AI.</p>
-<p v-click style="margin-top:16px">Harganya: <b>data kita dikirim ke server pihak lain.</b></p>
+<p class="redup" style="font-size:15px">Per 1 juta token, untuk kemampuan yang sama</p>
+<p class="sorot aksen" style="margin:4px 0 0;font-size:88px"><AngkaNaik :sampai="280" akhiran="×" /></p>
+<p class="redup" style="font-size:16px;margin-top:0">setara GPT-3.5, Nov 2022 → Okt 2024</p>
+<p class="sorot-kecil biru" style="margin-top:14px">± 200×</p>
+<p class="redup" style="font-size:16px;margin-top:0">setara GPT-4, Mar 2023 → Feb 2025</p>
+<p style="margin-top:14px;font-size:17px;line-height:1.4">Nov 2026: model yang dipakai Satu Etam <b>US$0,11–0,26</b> per 1 juta token.</p>
+<p v-click style="margin-top:8px;font-size:17px;line-height:1.4">Harganya: <b>data kita dikirim ke server pihak lain.</b></p>
 </div>
 </div>
 
-<p class="sumber">Sumber: Stanford AI Index 2025 — membandingkan harga untuk kemampuan setara, bukan harga satu produk yang sama.</p>
+<p class="sumber">Sumber: Stanford AI Index 2025 (GPT-3.5); Epoch AI, “LLM inference prices have fallen rapidly but unequally across tasks”, Mar 2025 (GPT-4, MMLU); harga OpenRouter 10 Nov 2026 (DeepSeek V4 Flash, Qwen3.5-9B, Qwen3-VL-30B). Harga gabungan 3 input : 1 output.</p>
 
 <!--
+Dua garis = dua tingkat kemampuan yang dikunci: setara GPT-3.5 dan setara GPT-4. Harganya turun ratusan kali.
+GPT-4: US$37,50 (Mar 2023) → GPT-4 Turbo US$15 → Gemini 1.5 Pro US$2,19 → Gemini 2.0 Flash US$0,18 (Feb 2025), ±208×.
+Titik 2026 BUKAN lanjutan garis: itu harga hari ini untuk model yang kami pakai di Satu Etam (DeepSeek V4 Flash, Qwen).
+Pesan: harga per token sekarang di kisaran sen dolar — biaya bukan lagi penghalang.
 [klik] Jembatan ke tata kelola: murah, tapi data keluar dari institusi kita. Maka harus ada aturan.
 -->
 
@@ -195,7 +209,7 @@ bagian: Tiga cara memakai AI
 bagian: Tiga cara memakai AI
 ---
 
-# Dari triliunan rupiah, ke ratusan rupiah
+# Dari triliunan rupiah, <span class="biru">ke ratusan rupiah</span>
 
 <p class="redup" style="margin:8px 0 36px">Biaya tiap cara, dalam rupiah.</p>
 
@@ -216,7 +230,7 @@ bagian: Tiga cara memakai AI
 
 <div style="max-width:1000px">
 <h1 style="font-size:64px">AI sudah murah.</h1>
-<h1 style="font-size:64px;margin-top:12px" class="redup">Yang mahal adalah data yang buruk, dan keputusan yang tidak bisa dipertanggungjawabkan.</h1>
+<h1 style="font-size:64px;margin-top:12px" class="biru">Yang mahal adalah data yang buruk, dan keputusan yang tidak bisa dipertanggungjawabkan.</h1>
 </div>
 
 <!--
@@ -229,7 +243,7 @@ bagian: Kerangka
 
 <div class="judul-garis">
 
-# Lima pertanyaan sebelum AI dipakai untuk keputusan
+# Lima pertanyaan sebelum AI dipakai <span class="biru">untuk keputusan</span>
 
 </div>
 
@@ -248,18 +262,18 @@ Kesalahan paling umum: langsung lompat ke nomor 2 (memilih AI) sebelum nomor 1 (
 bagian: Studi kasus — Satu Etam
 ---
 
-# Satu Etam: data dirapikan di RT, dijumlahkan sampai meja Walikota
+# Satu Etam: data dirapikan di RT, <span class="biru">dijumlahkan sampai meja Walikota</span>
 
 <p class="redup" style="margin:10px 0 40px">Sistem Informasi RT Kota Balikpapan — produk Myst Tech, <span class="mono">rt.myst-tech.com</span></p>
 
-<div class="alur" style="margin-top:72px">
+<div class="alur" style="margin-top:40px">
 <div v-click><p class="tahap">01 · RT</p><p class="judul">Warga dan ketua RT</p><p class="ket">Data rumah, keluarga, dan demografi dicatat rapi di tempat asalnya.</p></div>
 <div v-click><p class="tahap">02 · AGREGAT</p><p class="judul">Angka per wilayah</p><p class="ket">Dijumlahkan per RT, kelurahan, kecamatan — tanpa nama, NIK, atau kontak.</p></div>
 <div v-click><p class="tahap">03 · KOTA</p><p class="judul">Dashboard Walikota</p><p class="ket">Digabung dengan 91 indikator dari 24 OPD di Portal Satu Data.</p></div>
 <div v-click><p class="tahap">04 · KEPUTUSAN</p><p class="judul">Tanya Data</p><p class="ket">Pertanyaan → analisis → saran program, lengkap dengan sumbernya.</p></div>
 </div>
 
-<div class="grid grid-cols-3 gap-12" style="margin-top:64px;border-top:1px solid #cfc8b8;padding-top:18px">
+<div class="statistik" style="margin-top:48px">
 <div><p class="sorot-kecil">2 RT</p><p class="redup">sudah berjalan: RT 44 & RT 56, Kel. Sepinggan Baru</p></div>
 <div><p class="sorot-kecil">± 415</p><p class="redup">rumah tercatat</p></div>
 <div><p class="sorot-kecil">91</p><p class="redup">indikator dari 24 OPD di Ruang Dinas Walikota</p></div>
@@ -274,10 +288,10 @@ Satu Etam merapikan dari bawah, lalu menjumlahkan ke atas tanpa membawa data pri
 bagian: Studi kasus — Satu Etam
 ---
 
-# AI yang mengetik. Ketua RT yang memeriksa.
+# AI yang mengetik. <span class="biru">Ketua RT yang memeriksa.</span>
 
 <div class="grid gap-12" style="grid-template-columns: 1.15fr 1fr; margin-top:32px">
-<Tangkapan src="/baca-kk.png" label="Layar tinjau hasil Baca Kartu Keluarga (mode demo)" :tinggi="400" />
+<Tangkapan src="/baca-kk.jpg" video="/baca-kk.mp4" label="Layar tinjau hasil Baca Kartu Keluarga (mode demo)" :tinggi="400" />
 <div>
 
 - Ketua RT memfoto KTP atau Kartu Keluarga, formulir terisi sendiri
@@ -298,7 +312,7 @@ Di kode: PembacaKtp / PembacaKk + layar tinjau TinjauKkDialog. Model Qwen3-VL le
 bagian: Studi kasus — Satu Etam
 ---
 
-# AI menerjemahkan pertanyaan. Angkanya dihitung sistem.
+# AI menerjemahkan pertanyaan. <span class="biru">Angkanya dihitung sistem.</span>
 
 <div class="grid gap-12" style="grid-template-columns: 1fr 1.15fr; margin-top:28px">
 <div>
@@ -311,7 +325,7 @@ bagian: Studi kasus — Satu Etam
 - AI tidak tersedia → sistem tetap jalan dengan kata kunci
 
 </div>
-<Tangkapan src="/tanya-data.png" label="Tanya Data di dashboard Walikota (mode demo)" :tinggi="420" />
+<Tangkapan src="/tanya-data.jpg" video="/tanya-data.mp4" label="Tanya Data di dashboard Walikota (mode demo)" :tinggi="420" />
 </div>
 
 <!--
@@ -323,7 +337,7 @@ Solusinya: AI jadi penerjemah pertanyaan, hitungan oleh sistem yang deterministi
 bagian: Studi kasus — Satu Etam
 ---
 
-# Biaya AI di Satu Etam: sekitar lima rupiah per KTP
+# Biaya AI di Satu Etam: <span class="biru">sekitar lima rupiah per KTP</span>
 
 <div class="grid gap-16" style="grid-template-columns: 1.3fr 1fr; margin-top:44px">
 <div>
@@ -353,7 +367,7 @@ Sampel kecil — sebut "uji coba awal". Cek ulang angkanya sehari sebelum acara.
 bagian: Studi kasus — Satu Etam
 ---
 
-# Aturan main ditulis ke dalam sistem, bukan di lemari
+# Aturan main ditulis ke dalam sistem, <span class="biru">bukan di lemari</span>
 
 <div style="margin-top:36px">
 
@@ -377,19 +391,19 @@ ZDR = penyedia AI tidak menyimpan isi permintaan dan tidak memakainya untuk mela
 bagian: Pelajaran
 ---
 
-# Tiga hal yang bisa dimulai besok
+# Tiga hal yang bisa <span class="biru">dimulai besok</span>
 
-<div class="grid grid-cols-3 gap-12" style="margin-top:64px">
-<div class="kolom" v-click><p class="no">01</p><h2>Mulai dari data, bukan dari AI</h2><p class="redup">Rapikan data di sumbernya. AI tidak bisa memperbaiki data yang tidak ada.</p></div>
-<div class="kolom" v-click><p class="no">02</p><h2>AI membantu, manusia memutuskan</h2><p class="redup">Tentukan di titik mana manusia wajib memeriksa, sebelum sistemnya dibangun.</p></div>
-<div class="kolom" v-click><p class="no">03</p><h2>Ukur dengan angka yang bisa dicek</h2><p class="redup">Waktu, biaya, ketepatan sasaran — dan catat setiap pemakaian.</p></div>
+<div class="grid grid-cols-3 gap-7" style="margin-top:56px">
+<div class="kotak" v-click><p class="no">01</p><h2>Mulai dari data, bukan dari AI</h2><p class="redup">Rapikan data di sumbernya. AI tidak bisa memperbaiki data yang tidak ada.</p></div>
+<div class="kotak" v-click><p class="no">02</p><h2>AI membantu, manusia memutuskan</h2><p class="redup">Tentukan di titik mana manusia wajib memeriksa, sebelum sistemnya dibangun.</p></div>
+<div class="kotak" v-click><p class="no">03</p><h2>Ukur dengan angka yang bisa dicek</h2><p class="redup">Waktu, biaya, ketepatan sasaran — dan catat setiap pemakaian.</p></div>
 </div>
 
 ---
 bagian: Diskusi kelompok
 ---
 
-# Giliran Bapak dan Ibu
+# Giliran <span class="biru">Bapak dan Ibu</span>
 
 <div class="grid gap-16" style="grid-template-columns: 1fr 1fr; margin-top:44px">
 <div>
@@ -398,6 +412,8 @@ bagian: Diskusi kelompok
 - Pilih **satu keputusan nyata** di institusi Anda
 - Jawab lima pertanyaan di lembar kerja
 - Presentasi kilat tiga menit per kelompok
+
+<Foto src="/foto/diskusi-kelompok.jpg" :tinggi="170" posisi="center 45%" :atas="24" kredit="mikecogh, CC BY 2.0" />
 
 </div>
 <div>
@@ -423,7 +439,7 @@ Hasil lembar kerja = peta tantangan & peluang, rekomendasi awal, daftar minat ko
 bagian: Penutup
 ---
 
-# Mari mulai dari satu kelurahan, satu OPD, satu keputusan
+# Mari mulai dari satu kelurahan, <span class="biru">satu OPD, satu keputusan</span>
 
 <div class="grid gap-16" style="grid-template-columns: 1fr 1fr; margin-top:48px">
 <div class="kolom">
@@ -433,15 +449,17 @@ bagian: Penutup
 - **Pelatihan** tata kelola AI untuk ASN dan staf
 - **Riset** model lokal untuk data sensitif
 
+<Foto src="/foto/kelurahan-manggar.jpg" :tinggi="150" posisi="center 55%" :atas="20" ket="Kantor Kelurahan Manggar, Balikpapan Timur" kredit="Ezagren, CC BY-SA 4.0" />
+
 </div>
 <div class="kolom">
 <p class="no">MYST TECH · myst-tech.com</p>
-
-- GuruPintar — asisten guru
-- AsdosPintar — asisten kelas dosen
-- SkripsiPintar — pendamping skripsi
-- Satu Etam — manajemen RT dan dashboard pemkot
-
+<div style="margin-top:10px">
+<div class="produk"><img src="/produk/gurupintar.jpg" alt=""><div><p class="nama">GuruPintar</p><p class="ket">asisten guru</p></div></div>
+<div class="produk"><img src="/produk/asdospintar.jpg" alt=""><div><p class="nama">AsdosPintar</p><p class="ket">asisten kelas dosen</p></div></div>
+<div class="produk"><img src="/produk/skripsipintar.jpg" alt=""><div><p class="nama">SkripsiPintar</p><p class="ket">pendamping skripsi</p></div></div>
+<div class="produk"><img src="/produk/manajemen-rt.jpg" alt=""><div><p class="nama">Satu Etam</p><p class="ket">manajemen RT dan dashboard pemkot</p></div></div>
+</div>
 </div>
 </div>
 
@@ -461,9 +479,12 @@ bagian: Referensi
 
 - Stanford HAI, *AI Index Report 2025*
 - Liputan AI Index 2025: Tom’s Hardware; WisdomTree, “280x cheaper”
+- Epoch AI (Mar 2025), “LLM inference prices have fallen rapidly but unequally across tasks”
+- OpenRouter, daftar harga model per 10 Nov 2026
 - Next Platform (2024), kebutuhan GPU Llama 3.1 405B; RunPod
 - GMI Cloud; Thunder Compute — harga beli dan sewa GPU H100 (2025)
 - Catatan pemakaian sistem Satu Etam, tabel ai_usages (agregat, tanpa data pribadi)
+- Foto: Wikimedia Commons dan Flickr — CC0, domain publik, CC BY 2.0, CC BY-SA 4.0; kredit tertera di tiap slide
 
 </div>
 
