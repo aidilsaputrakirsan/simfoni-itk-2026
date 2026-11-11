@@ -33,11 +33,48 @@ class: sampul
 <p><b>Aidil Saputra Kirsan, S.ST., M.Tr.Kom.</b></p>
 <p class="redup">Dosen Sistem Informasi ITK · Founder Myst Tech</p>
 </div>
+<div class="merek">
+<img src="/myst-mark.svg" alt="Logo Myst Tech">
+<div><p><b>Myst Tech</b></p><p class="redup">PT Myst Tech Core · Balikpapan</p></div>
+</div>
 </div>
 
 <!--
 Perkenalan singkat: dosen SI ITK, pendiri Myst Tech yang membangun produk AI untuk guru, dosen, mahasiswa, dan RT.
 Format: 30 menit saya bicara, 60 menit Bapak/Ibu yang bekerja.
+-->
+
+---
+bagian: Pembuka
+---
+
+# Saya melihat AI dari tiga meja: <span class="biru">kampus, perusahaan, dan RT</span>
+
+<div class="grid gap-12" style="grid-template-columns: 300px 1fr; margin-top:30px; align-items:start">
+<div class="potret"><img src="/aidil.png" alt="Aidil Saputra Kirsan"></div>
+<div>
+<div class="baris" style="grid-template-columns:150px 1fr;border-top:none" v-click>
+<span class="no">KAMPUS</span>
+<span><span class="nama">Dosen Sistem Informasi ITK</span><br><span class="ket">sejak 2020 · Kepala Lab Inovasi Digital FSTI · 23 publikasi</span></span>
+</div>
+<div class="baris" style="grid-template-columns:150px 1fr" v-click>
+<span class="no">PERUSAHAAN</span>
+<span><span class="nama"><img src="/myst-mark.svg" alt="" class="logo-sebaris"> Founder Myst Tech</span><br><span class="ket">PT Myst Tech Core · empat produk AI, termasuk Satu Etam</span></span>
+</div>
+<div class="baris" style="grid-template-columns:150px 1fr" v-click>
+<span class="no">RT</span>
+<span><span class="nama">Ketua RT 44, Sepinggan Baru</span><br><span class="ket">sejak 2025 · Satu Etam dipakai di RT sendiri</span></span>
+</div>
+<p v-click style="font-size:17px;margin-top:18px"><span class="redup">Juga</span> kreator konten edukasi SI &amp; AI <span class="redup">di Instagram</span> <span class="mono mint">@aidilsaputrakirsan</span></p>
+</div>
+</div>
+
+<p class="sumber">Sumber: profil aidilsaputrakirsan.github.io; jumlah publikasi dari OpenAlex.</p>
+
+<!--
+30 detik saja. Intinya: saya bukan hanya membahas AI — saya membangunnya (Myst Tech), mengajarkannya (ITK),
+dan memakainya sendiri sebagai ketua RT. Studi kasus nanti lahir dari meja ketiga itu.
+Tiga meja = tiga kelompok peserta hari ini: kampus, industri, pemerintah/masyarakat.
 -->
 
 ---
@@ -68,6 +105,66 @@ bagian: Pembuka
 [klik] Minta angkat tangan untuk pertanyaan 1 (online: chat/polling). Hampir semua angkat tangan.
 [klik] Tunjukkan kalimat kedua.
 [klik] Pertanyaan 2: sedikit yang angkat tangan. Itulah jarak yang dibahas hari ini.
+-->
+
+---
+bagian: Otak AI
+clicks: 3
+---
+
+# Otak dari ChatGPT, Gemini, dan Claude adalah model bahasa: <span class="biru">mesin penebak kata berikutnya</span>
+
+<div style="margin-top:30px">
+<TebakKata />
+</div>
+
+<!--
+Model bahasa dilatih dari teks dalam jumlah sangat besar, lalu bekerja dengan satu cara: menebak kata berikutnya yang paling mungkin.
+[klik 1] Untuk pertanyaan ini, model melihat beberapa kandidat (angkanya ilustrasi).
+[klik 2] Ia memilih yang paling mungkin — dan jawabannya terdengar sangat yakin.
+[klik 3] Padahal ia tidak pernah melihat data lansia Balikpapan. Ini halusinasi: bukan berbohong, tapi menebak.
+Jembatan: inilah alasan Tanya Data di Satu Etam tidak membiarkan AI menghitung.
+-->
+
+---
+bagian: Otak AI
+---
+
+# AI yang pintar bukan yang selalu menjawab, <span class="biru">tapi yang tahu kapan tidak tahu</span>
+
+<div class="grid gap-12" style="grid-template-columns: 1.25fr 1fr; margin-top:30px">
+<div>
+<p class="redup" style="font-size:16px;margin-bottom:14px">Tes SimpleQA — pertanyaan fakta singkat:</p>
+<TahuTidakTahu />
+<p style="font-size:17px;margin-top:6px">Kalau yang dihitung hanya jawaban benar, model pertama terlihat lebih pintar. <b>Salahnya hampir tiga kali lipat.</b></p>
+</div>
+<div>
+<p class="label-kolom">MODEL HARI INI</p>
+<div class="keluarga" style="margin-top:10px">
+<p><span class="redup">tertutup, lewat API</span><br><span class="chip-model">GPT</span><span class="chip-model">Gemini</span><span class="chip-model">Claude</span></p>
+<p><span class="redup">bobot terbuka, bisa dipasang sendiri</span><br><span class="chip-model mint">DeepSeek</span><span class="chip-model mint">Qwen</span><span class="chip-model mint">Llama</span></p>
+</div>
+<p class="label-kolom" style="margin-top:14px">UNTUK KEPUTUSAN, BANDINGKAN</p>
+
+<div class="kriteria">
+
+- **Ketepatan**: seberapa sering salah
+- **Bisa membaca** dokumen, tabel, foto
+- **Biaya** per pemakaian
+- **Privasi**: data ke mana, disimpan atau tidak
+
+</div>
+
+</div>
+</div>
+
+<p class="sumber">Sumber: OpenAI, “Why language models hallucinate” (Sep 2025), data SimpleQA dari GPT-5 system card; “tidak menjawab” = 100% − benar − salah.</p>
+
+<!--
+Penyebab halusinasi menurut riset OpenAI: pelatihan dan penilaian model memberi nilai untuk menebak, bukan untuk berkata "tidak tahu".
+Pesan untuk pengambil keputusan: jangan pilih model dari klaim "paling pintar"; tanyakan seberapa sering ia salah,
+apakah bisa membaca dokumen kita, berapa biayanya, dan ke mana datanya pergi.
+Satu Etam memakai DeepSeek dan Qwen lewat API (bobot terbuka, tapi dijalankan penyedia dengan zero data retention).
 -->
 
 ---
@@ -236,49 +333,43 @@ Jeda. Ini kalimat yang ingin dibawa pulang peserta.
 
 ---
 bagian: Kerangka
+clicks: 6
 ---
-
-<div class="judul-garis">
 
 # Lima pertanyaan sebelum AI dipakai <span class="biru">untuk keputusan</span>
 
+<div style="margin-top:30px">
+<LimaGerbang />
 </div>
-
-<div class="baris" v-click><span class="no">01</span><span class="nama">Data</span><span class="ket">Datanya ada dan rapi? Siapa pemiliknya? Terbaru tahun berapa?</span></div>
-<div class="baris" v-click><span class="no">02</span><span class="nama">Peran AI</span><span class="ket">Membaca, merangkum, menghitung, atau menyarankan?</span></div>
-<div class="baris" v-click><span class="no">03</span><span class="nama">Tata kelola</span><span class="ket">Siapa yang memutuskan, siapa yang memeriksa, adakah jejak audit?</span></div>
-<div class="baris" v-click><span class="no">04</span><span class="nama">Etika & privasi</span><span class="ket">Data pribadi apa yang ikut terkirim? Sesuai UU PDP? Siapa yang bisa dirugikan?</span></div>
-<div class="baris" v-click><span class="no">05</span><span class="nama">Dampak</span><span class="ket">Diukur dengan angka apa: waktu, biaya, ketepatan sasaran?</span></div>
 
 <!--
 Lima pertanyaan ini dipakai lagi di lembar kerja diskusi.
-Kesalahan paling umum: langsung lompat ke nomor 2 (memilih AI) sebelum nomor 1 (data) beres.
+[klik 1–5] Satu gerbang per klik; contoh di bawahnya adalah cuplikan studi kasus Satu Etam berikutnya.
+[klik 6] Kesalahan paling umum: langsung lompat ke nomor 2 (memilih AI) sebelum nomor 1 (data) beres.
 -->
 
 ---
 bagian: Studi kasus — Satu Etam
+clicks: 4
 ---
 
 # Satu Etam: data dirapikan di RT, <span class="biru">dijumlahkan sampai meja Walikota</span>
 
-<p class="redup" style="margin:10px 0 40px">Sistem Informasi RT Kota Balikpapan — produk Myst Tech, <span class="mono">rt.myst-tech.com</span></p>
+<p class="redup" style="margin:10px 0 0">Sistem Informasi RT Kota Balikpapan — produk Myst Tech, <span class="mono">rt.myst-tech.com</span></p>
 
-<div class="alur" style="margin-top:40px">
-<div v-click><p class="tahap">01 · RT</p><p class="judul">Warga dan ketua RT</p><p class="ket">Data rumah, keluarga, dan demografi dicatat rapi di tempat asalnya.</p></div>
-<div v-click><p class="tahap">02 · AGREGAT</p><p class="judul">Angka per wilayah</p><p class="ket">Dijumlahkan per RT, kelurahan, kecamatan — tanpa nama, NIK, atau kontak.</p></div>
-<div v-click><p class="tahap">03 · KOTA</p><p class="judul">Dashboard Walikota</p><p class="ket">Digabung dengan 91 indikator dari 24 OPD di Portal Satu Data.</p></div>
-<div v-click><p class="tahap">04 · KEPUTUSAN</p><p class="judul">Tanya Data</p><p class="ket">Pertanyaan → analisis → saran program, lengkap dengan sumbernya.</p></div>
+<div style="margin-top:40px">
+<AlurData />
 </div>
 
-<div class="statistik" style="margin-top:48px">
-<div><p class="sorot-kecil">2 RT</p><p class="redup">sudah berjalan: RT 44 & RT 56, Kel. Sepinggan Baru</p></div>
-<div><p class="sorot-kecil">± 415</p><p class="redup">rumah tercatat</p></div>
-<div><p class="sorot-kecil">91</p><p class="redup">indikator dari 24 OPD di Ruang Dinas Walikota</p></div>
-</div>
+<p class="sumber">Yang dikirim ke penyedia AI hanya angka dari kolom “per wilayah”; penyedia wajib <i>zero data retention</i>. Sumber: sistem Satu Etam (agregat).</p>
 
 <!--
 Keputusan kota yang baik butuh data dari bawah. Selama ini data RT ada di buku tulis dan Excel yang berbeda-beda.
 Satu Etam merapikan dari bawah, lalu menjumlahkan ke atas tanpa membawa data pribadi.
+[klik 1] Di RT: data rumah lengkap, termasuk yang pribadi.
+[klik 2] Batas privasi: nama, NIK, kontak, iuran TIDAK ikut naik — yang naik hanya jumlah.
+[klik 3] Di kota: digabung dengan 91 indikator dari 24 OPD; data lama diberi tanda.
+[klik 4] Keputusan: Walikota bertanya, sistem menghitung, sumber selalu tampil.
 -->
 
 ---
@@ -362,39 +453,41 @@ Sampel kecil — sebut "uji coba awal". Cek ulang angkanya sehari sebelum acara.
 
 ---
 bagian: Studi kasus — Satu Etam
+clicks: 5
 ---
 
 # Aturan main ditulis ke dalam sistem, <span class="biru">bukan di lemari</span>
 
-<div style="margin-top:36px">
+<p class="redup" style="margin:10px 0 0">Lima pertanyaan tadi — dijawab oleh keputusan desain Satu Etam.</p>
 
-| Keputusan desain | Menjawab pertanyaan |
-|---|---|
-| AI membaca, manusia memeriksa dan menyimpan | 03 · Tata kelola |
-| Angka dihitung sistem, sumber selalu ditampilkan | 02 · Peran AI |
-| Ke AI hanya angka agregat — tanpa nama, NIK, kontak, iuran | 04 · Etika & privasi |
-| Penyedia AI wajib *zero data retention*, tanpa itu permintaan ditolak | 04 · Etika & privasi |
-| Data dinas yang lebih dari dua tahun diberi tanda “data lama” | 01 · Data |
-| Setiap pemakaian AI tercatat lengkap dengan biayanya | 05 · Dampak |
-
+<div style="margin-top:34px">
+<GerbangTerjawab />
 </div>
 
 <!--
 Tata kelola bukan dokumen di lemari — ia ditulis ke dalam sistem. Pemerintah dan industri bisa meniru caranya, apa pun aplikasinya.
 ZDR = penyedia AI tidak menyimpan isi permintaan dan tidak memakainya untuk melatih model.
+[klik 1–5] Satu gerbang per klik — sama dengan lima pertanyaan di slide kerangka, kini terjawab.
+Myst-Core = gerbang AI bersama semua aplikasi Myst Tech: pemilihan model, prompt, pencatatan pemakaian, mode uji.
 -->
 
 ---
 bagian: Pelajaran
+clicks: 4
 ---
 
-# Tiga hal yang bisa <span class="biru">dimulai besok</span>
+# Tiga hal yang bisa dimulai besok, <span class="biru">dan ketiganya satu siklus</span>
 
-<div class="grid grid-cols-3 gap-7" style="margin-top:56px">
-<div class="kotak" v-click><p class="no">01</p><h2>Mulai dari data, bukan dari AI</h2><p class="redup">Rapikan data di sumbernya. AI tidak bisa memperbaiki data yang tidak ada.</p></div>
-<div class="kotak" v-click><p class="no">02</p><h2>AI membantu, manusia memutuskan</h2><p class="redup">Tentukan di titik mana manusia wajib memeriksa, sebelum sistemnya dibangun.</p></div>
-<div class="kotak" v-click><p class="no">03</p><h2>Ukur dengan angka yang bisa dicek</h2><p class="redup">Waktu, biaya, ketepatan sasaran — dan catat setiap pemakaian.</p></div>
+<div style="margin-top:40px">
+<Siklus />
 </div>
+
+<!--
+[klik 1] Data: rapikan di sumbernya.
+[klik 2] AI mengolah, lalu manusia memeriksa — tentukan titik periksanya sebelum sistem dibangun.
+[klik 3] Keputusan yang diambil diukur: waktu, biaya, ketepatan sasaran.
+[klik 4] Hasil ukur kembali memperbaiki data. Ini bukan proyek sekali jadi, tapi siklus.
+-->
 
 ---
 bagian: Pola yang sama — GuruPintar
@@ -448,17 +541,22 @@ bagian: Penutup
 
 </div>
 <div class="kolom">
-<p class="no">MYST TECH · myst-tech.com</p>
-<div style="margin-top:10px">
+<p class="no"><img src="/myst-mark.svg" alt="" class="logo-sebaris"> MYST TECH · myst-tech.com</p>
+<div class="produk-ringkas" style="margin-top:8px">
 <div class="produk"><img src="/produk/gurupintar.jpg" alt=""><div><p class="nama">GuruPintar</p><p class="ket">asisten guru</p></div></div>
 <div class="produk"><img src="/produk/asdospintar.jpg" alt=""><div><p class="nama">AsdosPintar</p><p class="ket">asisten kelas dosen</p></div></div>
 <div class="produk"><img src="/produk/skripsipintar.jpg" alt=""><div><p class="nama">SkripsiPintar</p><p class="ket">pendamping skripsi</p></div></div>
 <div class="produk"><img src="/produk/manajemen-rt.jpg" alt=""><div><p class="nama">Satu Etam</p><p class="ket">manajemen RT dan dashboard pemkot</p></div></div>
 </div>
+<div class="ikuti">
+<img src="/qr-instagram.svg" alt="QR ke Instagram @aidilsaputrakirsan">
+<div><p><b>Ikuti konten edukasi AI</b> <span class="mono mint">@aidilsaputrakirsan</span></p><p class="redup">Instagram · pindai dengan kamera HP</p></div>
+</div>
+
 </div>
 </div>
 
-<p class="sumber">Kontak: [email] · [WhatsApp] · [QR]</p>
+<p class="sumber">Kontak: [email] · [WhatsApp]</p>
 
 <!--
 Satu slide saja, jangan berubah jadi sesi jualan. Kaitkan dengan Pusat Riset TIK Smart City ITK di sesi siang.
