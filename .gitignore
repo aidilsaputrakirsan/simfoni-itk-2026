@@ -2,3 +2,5 @@ node_modules
 dist
 *.local
 .DS_Store
+# rekaman mentah bisa memuat data asli; hanya mp4 hasil potong yang di-commit
+*.mov

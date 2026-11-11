@@ -3,6 +3,7 @@ theme: default
 title: Integrasi AI untuk Kebijakan dan Keputusan Strategis
 info: SIMFONI ITK 2026 — Workshop, Aidil Saputra Kirsan
 colorSchema: dark
+favicon: /favicon.svg
 aspectRatio: 16/9
 canvasWidth: 1280
 fonts:
@@ -31,10 +32,6 @@ class: sampul
 <div>
 <p><b>Aidil Saputra Kirsan, S.ST., M.Tr.Kom.</b></p>
 <p class="redup">Dosen Sistem Informasi ITK · Founder Myst Tech</p>
-</div>
-<div>
-<p>Selasa, 17 November 2026</p>
-<p class="redup">Ruang Rapat 1 LPPM ITK · Moderator: Riki Herliansyah, Ph.D</p>
 </div>
 </div>
 
@@ -400,39 +397,37 @@ bagian: Pelajaran
 </div>
 
 ---
-bagian: Diskusi kelompok
+bagian: Pola yang sama — GuruPintar
 ---
 
-# Giliran <span class="biru">Bapak dan Ibu</span>
+# Pola yang sama di sekolah: <span class="biru">aturan AI tertulis, pemakaiannya tercatat</span>
 
-<div class="grid gap-16" style="grid-template-columns: 1fr 1fr; margin-top:44px">
+<div class="grid gap-10" style="grid-template-columns: 1.1fr 1fr; margin-top:26px">
+<Tangkapan src="/gurupintar-admin.jpg" video="/gurupintar-admin.mp4" label="Panel admin GuruPintar — tab Prompt AI" :tinggi="380" :zoom="1.38" />
 <div>
 
-- Kelompok campuran: pemerintah, industri, ITK
-- Pilih **satu keputusan nyata** di institusi Anda
-- Jawab lima pertanyaan di lembar kerja
-- Presentasi kilat tiga menit per kelompok
+- Tiap fitur AI punya **prompt tertulis**: peran, aturan, format jawaban, bisa dibaca dan diubah admin
+- **Model dan temperature dipilih per tugas**: koreksi tugas 0,2 (kaku), draf pesan siswa 0,6
+- Setiap permintaan AI **dicatat tokennya** per akun guru
+- Nilai akhir tetap **di tangan guru**: hasil AI ditinjau dan bisa diedit
 
-<Foto src="/foto/diskusi-kelompok.jpg" :tinggi="170" posisi="center 45%" :atas="24" kredit="mikecogh, CC BY 2.0" />
-
+<div class="statistik" style="grid-template-columns:1fr 1fr;gap:24px;margin-top:22px">
+<div><p class="sorot-kecil">170</p><p class="redup" style="font-size:16px">permintaan AI tercatat</p></div>
+<div><p class="sorot-kecil">315.382</p><p class="redup" style="font-size:16px">token, terpisah teks dan gambar</p></div>
 </div>
-<div>
-
-| Menit | Kegiatan |
-|---|---|
-| <span class="mono">00–05</span> | Pembagian kelompok |
-| <span class="mono">05–35</span> | Kelompok bekerja |
-| <span class="mono">35–55</span> | Presentasi kilat |
-| <span class="mono">55–60</span> | Rangkuman |
 
 </div>
 </div>
 
-<p class="sumber">Kasus cadangan: prioritas bantuan lansia/stunting per kelurahan · prioritas perbaikan jalan · seleksi UMKM mitra binaan.</p>
+<p class="sumber">Sumber: panel admin GuruPintar (asisten guru, produk Myst Tech), 11 Nov 2026 — angka agregat, tanpa data guru atau siswa.</p>
 
 <!--
-Peserta online: breakout room / Google Form. Narasumber dan moderator berkeliling.
-Hasil lembar kerja = peta tantangan & peluang, rekomendasi awal, daftar minat kolaborasi (luaran KAK).
+Bukan untuk jualan: ini bukti bahwa pola tata kelola Satu Etam bisa ditiru di sektor lain.
+Kaitkan ke lima pertanyaan: 02 Peran AI (menilai dengan rubrik guru), 03 Tata kelola (prompt tertulis & bisa diaudit),
+05 Dampak (pemakaian dan token tercatat).
+Temperature = seberapa "kreatif" jawaban AI: 0 kaku/konsisten, 1 bebas. Untuk menilai dipakai rendah (0,2).
+Diskusi kelompok 60 menit dipandu moderator — lembar kerja memakai lima pertanyaan di slide 9.
+Kasus cadangan: prioritas bantuan lansia/stunting per kelurahan · prioritas perbaikan jalan · seleksi UMKM mitra binaan.
 -->
 
 ---

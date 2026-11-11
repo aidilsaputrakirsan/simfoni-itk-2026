@@ -40,7 +40,7 @@ Commit atas nama user, TANPA `Co-Authored-By: Claude` / atribusi Claude.
 | `global-top.vue` | header berjalan (SIMFONI ITK 2026 + bagian, garis tipis) + nomor halaman kanan bawah. HARUS `global-top` |
 | `components/HargaTurun.vue` | grafik lereng US$20 → US$0,07 (sumbu log) |
 | `components/BiayaLog.vue` | batang log: Rp1,3 T vs Rp190–280 jt/bln vs < Rp150 (muncul per klik) |
-| `components/Tangkapan.vue` | rekaman/tangkapan layar: prop `video` (mp4, muted+loop, jalan hanya saat slide aktif, reset saat pindah) → cadangan `src` (jpg = frame dari video; juga poster & tampilan ekspor) → bingkai putus-putus |
+| `components/Tangkapan.vue` | rekaman/tangkapan layar: prop `video` (mp4, muted+loop, jalan hanya saat slide aktif, reset saat pindah; `zoom` untuk rekaman bermargin lebar) → cadangan `src` (jpg = frame dari video; juga poster & tampilan ekspor) → bingkai putus-putus |
 | `components/Ilustrasi.vue` | ilustrasi line-art: `latih` (chip GPU), `server` (rak + unduh), `api` (aplikasi ⇄ cloud) |
 | `global-bottom.vue` | latar hidup: kanvas jaringan titik samar (sebagian mint) + warna latar gelap (karena `.slidev-layout` transparan). Diam di ekspor & reduced-motion |
 | `components/Foto.vue` | foto dokumenter berwarna (sedikit diredupkan) + kredit lisensi; zoom pelan saat slide aktif |
@@ -73,6 +73,7 @@ Plus Jakarta Sans (judul 800 + teks) + JetBrains Mono (angka, label kecil). Gaya
 | GPT-4 ±US$78 jt, Llama 3.1 405B ±US$170 jt, Gemini 1.0 Ultra ±US$191 jt (biaya komputasi latih) | Stanford AI Index 2025 (estimasi bersama Epoch AI), via liputan sekunder | Belum dicek langsung di tabel PDF — user diminta verifikasi |
 | Harga setara GPT-3.5: US$20 → US$0,07 per 1 jt token (Nov 2022 → Okt 2024), 280× | Stanford AI Index 2025 | Harga untuk kemampuan setara, bukan satu produk |
 | Harga setara GPT-4 (MMLU ≥ 86): GPT-4 US$37,50 (Mar 2023) → GPT-4 Turbo US$15 (Nov 2023) → Gemini 1.5 Pro US$2,19 (Mei 2024) → Gemini 2.0 Flash US$0,18 (Feb 2025), ±208× | Epoch AI, “LLM inference prices have fallen rapidly but unequally across tasks” (12 Mar 2025) | Data Epoch berhenti Feb 2025; tidak ada AI Index 2026 yang terverifikasi |
+| GuruPintar: 170 permintaan AI, 315.382 token tercatat; temperature koreksi 0,2, pesan siswa 0,6, transkripsi 0,1 | panel admin GuruPintar, 11 Nov 2026 (rekaman) | Agregat. Slide 16 = "pola yang sama di sekolah", bukan jualan |
 | Model Satu Etam Nov 2026: DeepSeek V4 Flash US$0,11, Qwen3.5-9B US$0,19, Qwen3-VL-30B US$0,26 per 1 jt token | API publik OpenRouter `/api/v1/models`, 10 Nov 2026 | Blended 3 input : 1 output (sama dgn AI Index/Epoch). Penanda terpisah, BUKAN lanjutan tren. Cek ulang sebelum acara |
 | Llama 3.1 405B ±810 GB memori GPU (FP16) → 8–16 GPU H100 | Next Platform (2024), RunPod | Sumber berbeda soal cukup 8 atau perlu 16 |
 | H100 US$25–40 rb/unit; sewa US$2–8/GPU/jam | GMI Cloud, Thunder Compute (2025) | Kisaran vendor |
@@ -101,6 +102,9 @@ URL sumber:
 - Ruang Dinas: 24 OPD, 91 indikator Portal Satu Data; data > 2 tahun ditandai "data lama".
 
 ## Belum selesai (TODO)
+- Slide 16 (dulu "Diskusi kelompok") diganti GuruPintar: `public/gurupintar-admin.mp4` (66 dtk, HANYA tab Prompt AI —
+  rekaman asli memuat email akun guru asli di tab Penggunaan AI, sudah dipotong dtk 11–77). Diskusi 60 menit (wajib KAK)
+  dipandu moderator; info kasus cadangan pindah ke catatan pembicara slide 16.
 - Rekaman demo sudah ada: `public/baca-kk.mp4` (39 dtk), `public/tanya-data.mp4` (23 dtk), dikonversi dari .mov dengan
   `avconvert --preset Preset1280x720` (bawaan macOS; tidak ada ffmpeg). Uji putar pakai Playwright `channel: 'chrome'`
   (Chromium bawaan Playwright tidak bisa H.264).

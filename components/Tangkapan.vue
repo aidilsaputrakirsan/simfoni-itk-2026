@@ -12,6 +12,7 @@ const props = defineProps({
   label: String,
   tinggi: { type: Number, default: 380 },
   pas: { type: String, default: 'cover' }, // object-fit: cover | contain
+  zoom: { type: Number, default: 1 },      // perbesar bagian tengah-atas (mis. 1.35 bila rekaman bermargin lebar)
 })
 // path "/x.png" → ikut base deploy (GitHub Pages: /simfoni-itk-2026/)
 const base = (p) => p?.startsWith('/') ? import.meta.env.BASE_URL + p.slice(1) : p
@@ -36,17 +37,23 @@ watch([aktif, vid], ([a, v]) => {
   }
 }, { immediate: true })
 
+const bingkai = computed(() => ({
+  height: props.tinggi + 'px', overflow: 'hidden',
+  border: '1px solid #343842', borderRadius: '14px', background: '#121419',
+}))
 const gaya = computed(() => ({
-  width: '100%', height: props.tinggi + 'px', objectFit: props.pas, objectPosition: 'top',
-  border: '1px solid #343842', borderRadius: '14px', background: '#121419', display: 'block',
+  width: '100%', height: '100%', objectFit: props.pas, objectPosition: 'top', display: 'block',
+  transform: props.zoom !== 1 ? `scale(${props.zoom})` : undefined, transformOrigin: 'top center',
 }))
 </script>
 
 <template>
   <figure style="margin: 0">
-    <video v-if="pakaiVideo" ref="vid" :src="urlVideo" :poster="gambarGagal ? undefined : url"
-           muted loop playsinline preload="auto" :style="gaya" @error="videoGagal = true" />
-    <img v-else-if="!gambarGagal" :src="url" :alt="label" :style="gaya" @error="gambarGagal = true">
+    <div v-if="pakaiVideo || !gambarGagal" :style="bingkai">
+      <video v-if="pakaiVideo" ref="vid" :src="urlVideo" :poster="gambarGagal ? undefined : url"
+             muted loop playsinline preload="auto" :style="gaya" @error="videoGagal = true" />
+      <img v-else :src="url" :alt="label" :style="gaya" @error="gambarGagal = true">
+    </div>
     <div v-else class="flex items-center justify-center text-center mono"
          :style="{ height: tinggi + 'px', border: '1px dashed #343842', borderRadius: '14px', color: '#6b7280', fontSize: '15px', padding: '24px', background: '#121419' }">
       rekaman belum ada<br>{{ label }}<br>→ simpan sebagai public{{ video || src }}
