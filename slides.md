@@ -26,7 +26,7 @@ class: sampul
 <p class="redup" style="font-size:24px;max-width:820px;margin-top:20px">Dari memakai AI, ke mengambil keputusan dengan bantuan AI — yang bisa dipertanggungjawabkan.</p>
 </div>
 
-<Foto src="/foto/balikpapan.jpg" :tinggi="150" posisi="center 60%" ket="Balikpapan, Desember 2018" kredit="consigliere ivan, CC0 (Wikimedia Commons)" />
+<AlurSampul />
 
 <div class="meta">
 <div>
@@ -556,7 +556,7 @@ bagian: Penutup
 </div>
 </div>
 
-<p class="sumber">Kontak: [email] · [WhatsApp]</p>
+<p class="sumber">Kontak: aidil@lecturer.itk.ac.id · 085398952880</p>
 
 <!--
 Satu slide saja, jangan berubah jadi sesi jualan. Kaitkan dengan Pusat Riset TIK Smart City ITK di sesi siang.
